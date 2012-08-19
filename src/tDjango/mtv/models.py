@@ -4,6 +4,7 @@ Created on 2012-8-15
 @author: dell
 '''
 from django.db import models
+
 class Publisher(models.Model):
     name = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
@@ -44,7 +45,8 @@ class Book(models.Model):
         return b  
     def __unicode__(self):
         return self.title
-    
+        class Meta:
+            ordering=['date']
     
     
     
