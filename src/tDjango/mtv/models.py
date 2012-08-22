@@ -1,8 +1,4 @@
-'''
-Created on 2012-8-15
-
-@author: dell
-'''
+# _*_ coding: utf-8 _*_
 from django.db import models
 
 class Publisher(models.Model):
@@ -45,8 +41,9 @@ class Book(models.Model):
         return b  
     def __unicode__(self):
         return self.title
-        class Meta:
-            ordering=['date']
+    #严格按照四个空格
+    class Meta:
+        ordering=['-date']
     
     
     

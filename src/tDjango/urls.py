@@ -1,10 +1,11 @@
+# _*_ coding: utf-8 _*_
 from django.conf.urls import patterns, include, url
 from tDjango.strOutToResponse.views import hello,current_time,plustime,plusdays
 from tDjango.template.views import current_time,current_ttime ,render_res_current_time,plus_days
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
                        ('^hello/',hello),
@@ -15,6 +16,8 @@ urlpatterns = patterns('',
                        ('^temTTime$',current_ttime),
                        ('^renTime$',render_res_current_time),
                        ('^addDays/(\d{1,2})$',plus_days),
+                       #url中不能加$  因为admin应用会在后面 加URL信息
+                       ('^admin/',include(admin.site.urls)),
     # Examples:
     # url(r'^$', 'testDjango.views.home', name='home'),
     # url(r'^testDjango/', include('testDjango.foo.urls')),
